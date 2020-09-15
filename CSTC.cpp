@@ -1353,8 +1353,6 @@ try {
               char msg[254];
               unsigned short planorderTem;
               planorderTem = stc.vGetUSIData(CSTC_exec_plan_phase_order);//紀錄舊Plan order
-              sprintf(msg,"planorderTem == %02X",planorderTem);
-              smem.vWriteMsgToDOM(msg);
               if((planorderTem == 0x80 || planorderTem == 0xB0) && smem.vGetBOOLData(TC_CCT_In_LongTanu_ActuateType_Switch))//舊Plan order == 閃光 && 行人觸動
               {
                 ReSetExtendTimer();
@@ -1371,7 +1369,6 @@ try {
               }
               else if(planorderTem == 0x80 || planorderTem == 0xB0)//舊Plan order == 閃光
               {
-                smem.vWriteMsgToDOM("1111");
                 ReSetStep(true);
                 if(planorderTem != stc.vGetUSIData(CSTC_exec_plan_phase_order))//新Plan order != 閃光
                 {
