@@ -1,0 +1,55 @@
+{
+        // See https://go.microsoft.com/fwlink/?LinkId=733558
+        // for the documentation about the tasks.json format
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "make Release_Build",
+                "type": "shell",
+                "command": "make",
+                "args": [
+                    "CFG=Release_Build", "all"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
+            {
+                "label": "make Debug_Build",
+                "type": "shell",
+                "command": "make",
+                "args": [
+                    "CFG=Debug_Build", "all"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
+            {
+                "label": "make Release clean",
+                "type": "shell",
+                "command": "make",
+                "args": [
+                    "CFG=Release_Build","clean"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
+            {
+                "label": "make Debug clean",
+                "type": "shell",
+                "command": "make",
+                "args": [
+                    "CFG=Debug_Build","clean"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            }
+        ]
+    }

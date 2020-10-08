@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"memory": "cpp",
+			"new": "cpp",
+			"streambuf": "cpp",
+			"typeinfo": "cpp"
+		}
+	}
+}
