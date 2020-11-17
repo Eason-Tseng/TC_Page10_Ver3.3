@@ -126,8 +126,8 @@ try {
     iFirmwareFirstVersion = 3;  //韌體版本
     iFirmwareSecondVersion = 3;
     iFirmwareYear = 2020;  //年
-    iFirmwareMonth = 9;  //月
-    iFirmwareDay = 11;  //日
+    iFirmwareMonth = 11;  //月
+    iFirmwareDay = 17;  //日
 
     //20140415, add dynamic seg for HsinChu dynamic control.
     //20140211, add special version for SIPA ped.

@@ -2006,8 +2006,21 @@ try {
           printf("  %d green_time=%3d compensation_time=%3d \n", _exec_plan._shorten_cycle?-1:1
                                                                , _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._green
                                                                , _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._green_compensation );
+          if(_exec_plan._ptr_subplaninfo[_exec_phase_current_subphase].compensated_green(_exec_plan._shorten_cycle) > _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._min_green && _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase].compensated_green(_exec_plan._shorten_cycle) < _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._max_green)
+          {
           _itimer_plan.it_value.tv_sec = _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase].compensated_green(_exec_plan._shorten_cycle);
           _itimer_plan_test.it_value.tv_sec = _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase].compensated_green(_exec_plan._shorten_cycle);
+          }
+          else if(_exec_plan._ptr_subplaninfo[_exec_phase_current_subphase].compensated_green(_exec_plan._shorten_cycle) <= _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._min_green)
+          {
+            _itimer_plan.it_value.tv_sec = _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._min_green;
+            _itimer_plan_test.it_value.tv_sec = _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._min_green;
+          }
+          else if(_exec_plan._ptr_subplaninfo[_exec_phase_current_subphase].compensated_green(_exec_plan._shorten_cycle) >= _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._max_green)
+          {
+            _itimer_plan.it_value.tv_sec = _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._max_green;
+            _itimer_plan_test.it_value.tv_sec = _exec_plan._ptr_subplaninfo[_exec_phase_current_subphase]._max_green;
+          }
           break;
 
         case(1):
