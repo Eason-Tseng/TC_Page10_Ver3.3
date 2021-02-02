@@ -3918,6 +3918,7 @@ void CSTC::Lock_to_Determine_SegmentPlanPhase(void)
       if( _exec_phase._subphase_count != _exec_plan._subphase_count ) {           //ï¿½pï¿½Gphaseï¿½Pplanï¿½wï¿½qï¿½ï¿½ï¿½ï¿½Oï¿\uFFFDVï¿½Æ¤ï¿½ï¿½Pï¿½ï¿½
         smem.vSetBOOLData(TC92_SubPhaseOfPhasePlanIncorrent, true);
         _exec_plan = plan[FLASH_PLANID];                                          //ï¿½ï¿½{ï¿½O
+        _exec_phase = phase[FLASH_PHASEORDER];
       }
       else {
         if( smem.vGetBOOLData(TC92_SubPhaseOfPhasePlanIncorrent) == true ) {
